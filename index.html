@@ -3,15 +3,41 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/12bool.css">
     <link rel="stylesheet" href="./assets/css/master.css">
     <title></title>
   </head>
-  <body>
+  <body class="">
     <div id="root">
-      <p>{{message}}</p>
 
-
+      <div class="sfondo">
+        <div class="sfondo-up"></div>
+        <div class="sfondo-down"></div>
+        <div class="app">
+          <div class="container-fluid">
+            <div class="contatti">
+              <div class="contatti-head"></div>
+              <div class="notifiche"></div>
+              <div class="ricerca"></div>
+              <div class="lista">
+                <ul class="lista-contatti">
+                  <li v-for='contact in contacts'>
+                    <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
+                    <div class="title">
+                      <span class="nome">{{contact.name}}</span>
+                      <span class="last"></span>
+                    </div>
+                    <span class="time"></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="messaggi"></div>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -47,11 +73,8 @@
 
 
     </div>
-    <!-- SCOMMENTARE SE SI USA JQUERY -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script> -->
-
-    <!-- SCOMMENTARE SE SI USA VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="./assets/js/dati.js" charset="utf-8"></script>
     <script src="./assets/js/main.js" charset="utf-8"></script>
   </body>
 </html>

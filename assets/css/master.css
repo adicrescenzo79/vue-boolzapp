@@ -1,0 +1,47 @@
+/* DEBUG */
+.debug .app .container-fluid{
+  background-color: blue;
+}
+
+/* GENERALI */
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+ul li{
+  list-style: none;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.sfondo{
+  position: relative;
+}
+
+.sfondo-up{
+  height: 15vh;
+  width: 100vw;
+  background-color: #039789;
+}
+
+.sfondo-down{
+  height: 85vh;
+  width: 100vw;
+  background-color: #D9DCD5;
+}
+
+.app .container-fluid{
+  height: 95vh;
+  width: 85vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lista-contatti img{
+  width: 65px;
+  border-radius: 50%;
+}
