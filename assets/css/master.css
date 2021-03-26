@@ -6,6 +6,7 @@
 /* GENERALI */
 body{
   font-family: 'Roboto', sans-serif;
+  font-size: 12px;
 }
 
 ul li{
@@ -44,4 +45,16 @@ ul li{
 .lista-contatti img{
   width: 65px;
   border-radius: 50%;
+}
+
+.lista-contatti .title{
+  display: flex;
+  flex-direction: column;
+}
+.lista-contatti .nome{
+  font-weight: bold;
+}
+
+.lista-contatti .time{
+  margin-left: auto;
 }

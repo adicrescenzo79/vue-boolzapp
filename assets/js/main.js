@@ -7,11 +7,12 @@ var app = new Vue({
   mounted () {
     this.contacts.forEach((item, i) => {
       let lastMsg = item.messages[item.messages.length - 1].text;
-      // console.log(newObj);
+      let lastTime = item.messages[item.messages.length - 1].date;
 
       let newItem = {
         ...item,
         lastMsg,
+        lastTime
       }
 
       this.newContacts.push(newItem)
