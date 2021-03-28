@@ -12,9 +12,6 @@ body{
 ul li{
   list-style: none;
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 .sfondo{
@@ -40,21 +37,91 @@ ul li{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 0;
+
+  display: flex;
 }
 
-.lista-contatti img{
+.contatti{
+  width: calc(100% / 3);
+}
+
+.contatti .lista-contatti img{
   width: 65px;
   border-radius: 50%;
 }
 
-.lista-contatti .title{
+.contatti .lista-contatti .contatto.active{
+  background-color: #EAEAEA;
+
+}
+
+.contatti .lista-contatti .contatto{
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #EAEAEA;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.contatti .lista-contatti .contatto .testo{
+  width: 100%;
+
   display: flex;
   flex-direction: column;
 }
-.lista-contatti .nome{
+
+.contatti .lista-contatti .title{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+}
+.contatti .lista-contatti .nome{
   font-weight: bold;
 }
 
-.lista-contatti .time{
+.contatti .lista-contatti .last,
+.contatti .lista-contatti .time{
+  color: #8F8DB2;
+}
+
+.messaggi{
+  width: calc(100% / 3 * 2);
+}
+.messaggi .exchange{
+  background: url(../img/mine.jpg) repeat;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+}
+
+.messaggi .exchange .messaggio{
+  width: calc(100% / 3);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.messaggi .exchange .sent{
+  background-color: #D5F9BB;
   margin-left: auto;
+}
+
+.messaggi .exchange .received{
+  background-color: #fff;
+}
+
+
+.messaggi .exchange .messaggio .date{
+  color: #8F8DB2;
+  align-self: flex-end;
 }

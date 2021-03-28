@@ -3,7 +3,9 @@ var app = new Vue({
   data: {
     contacts: contacts,
     newContacts: [],
+    index: 0,
   },
+
   mounted () {
     this.contacts.forEach((item, i) => {
       let lastMsg = item.messages[item.messages.length - 1].text;
@@ -15,13 +17,15 @@ var app = new Vue({
         lastTime
       }
 
-      this.newContacts.push(newItem)
-
+      this.newContacts.push(newItem);
 
     });
+  },
 
-
-
-
+  methods: {
+    select: function (contact) {
+      let selected = this.newContacts.indexOf(contact);
+      this.index = selected;
+    }
   }
 })
