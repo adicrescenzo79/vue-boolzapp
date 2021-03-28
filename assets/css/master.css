@@ -6,11 +6,15 @@
 /* GENERALI */
 body{
   font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 ul li{
   list-style: none;
+}
+
+i{
+  cursor: pointer;
 }
 
 /* SFONDO */
@@ -182,6 +186,7 @@ ul li{
 
 .contatti .lista-contatti .contatto .testo{
   width: 100%;
+  margin-left: 10px;
 
   display: flex;
   flex-direction: column;
@@ -201,6 +206,7 @@ ul li{
 .contatti .lista-contatti .last,
 .contatti .lista-contatti .time{
   color: #8F8DB2;
+  font-size: 11px;
 }
 
 /* LATO MESSAGGI */
@@ -208,11 +214,56 @@ ul li{
   width: calc(100% / 3 * 2);
 }
 
+/* INTESTAZIONE MESSAGGI */
+.messaggi .intestazione{
+  background: #EAEAEA;
+  height: 70px;
+  padding: 0 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.messaggi .intestazione .titolo{
+  display: flex;
+  align-items: center;
+}
+
+.messaggi .intestazione .titolo img{
+  width: 50px;
+  border-radius: 50%;
+}
+
+.messaggi .intestazione .titolo .testo{
+  margin-left: 10px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.messaggi .intestazione .titolo .testo .nome{
+  font-weight: bold;
+}
+
+.messaggi .intestazione .titolo .testo .last-time{
+  color: #8F8DB2;
+}
+
+.messaggi .intestazione .icons{
+  color: #B1B1B1;
+  font-size: 20px;
+}
+
+.messaggi .intestazione .icons i{
+  margin: 0 5px;
+}
+
 /* SCAMBIO MESSAGGI */
 .messaggi .exchange{
   background: url(../img/mine.jpg) repeat;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 140px);
   padding: 50px;
 }
 
@@ -240,4 +291,33 @@ ul li{
 .messaggi .exchange .messaggio .date{
   color: #8F8DB2;
   align-self: flex-end;
+  font-size: 11px;
 }
+
+/* NUOVO MESSAGGIO */
+.messaggi .new-msg{
+  height: 70px;
+  background: #EAEAEA;
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.messaggi .new-msg i{
+  color: #6D747A;
+  font-size: 25px;
+}
+
+.messaggi .new-msg input{
+  outline: none;
+  border: none;
+  width: 80%;
+  padding: 15px 10px;
+  border-radius: 8px;
+}
+
+.messaggi .new-msg
+
+.messaggi .new-msg
