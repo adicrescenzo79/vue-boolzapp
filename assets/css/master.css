@@ -11,9 +11,9 @@ body{
 
 ul li{
   list-style: none;
-
 }
 
+/* SFONDO */
 .sfondo{
   position: relative;
 }
@@ -30,6 +30,7 @@ ul li{
   background-color: #D9DCD5;
 }
 
+/* APP */
 .app .container-fluid{
   height: 95vh;
   width: 85vw;
@@ -43,10 +44,117 @@ ul li{
   display: flex;
 }
 
+/* LATO CONTATTI */
 .contatti{
   width: calc(100% / 3);
 }
 
+/* CONTATTI HEAD */
+.contatti .contatti-head{
+  background-color: #EAEAEA;
+  height: 70px;
+  padding: 0 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contatti .contatti-head .img-nome{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contatti .contatti-head .icons{
+  color: #B1B1B1;
+  font-size: 20px;
+}
+
+.contatti .contatti-head .icons *{
+  margin: 0 5px;
+}
+
+.contatti .contatti-head img{
+  width: 50px;
+  border-radius: 50%;
+}
+
+.contatti .contatti-head .img-nome span{
+  font-weight: bold;
+}
+
+/* NOTIFICHE */
+.contatti .notifiche{
+  background-color: #8EDAFC;
+  padding: 5px 0;
+
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contatti .notifiche *{
+  margin-left: 10px;
+}
+
+.contatti .notifiche i{
+  background-color: #fff;
+  font-size: 25px;
+  color: #8EDAFC;
+  padding: 17px 15px;
+  border-radius: 50%;
+}
+
+.contatti .notifiche .text{
+  display: flex;
+  flex-direction: column;
+}
+
+.contatti .notifiche .text a{
+  color:   #71867F;
+
+}
+
+/* RICERCA */
+.contatti .ricerca{
+  background-color: #F9F9F9;
+  padding: 10px;
+}
+
+.contatti .ricerca .search-input{
+  border: 1px solid #ECECEC;
+  background-color: #fff;
+  vertical-align: middle;
+
+  display: flex;
+
+}
+
+.contatti .ricerca .search-input .search{
+  border-right: 1px solid #ECECEC;
+  text-align: center;
+  vertical-align: middle;
+  width: 20%;
+}
+
+.contatti .ricerca .search-input .search i{
+  font-size: 15px;
+  padding: 10px 15px;
+
+  color: #CCCFD4;
+
+}
+
+.contatti .ricerca .search-input input{
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-left: 10px;
+}
+
+/* LISTA CONTATTI */
 .contatti .lista-contatti img{
   width: 65px;
   border-radius: 50%;
@@ -54,17 +162,22 @@ ul li{
 
 .contatti .lista-contatti .contatto.active{
   background-color: #EAEAEA;
-
 }
 
 .contatti .lista-contatti .contatto{
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid #EAEAEA;
+  cursor: pointer;
 
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.contatti .lista-contatti .contatto:hover{
+  background-color: #f7f7f7;
+
 }
 
 .contatti .lista-contatti .contatto .testo{
@@ -90,9 +203,12 @@ ul li{
   color: #8F8DB2;
 }
 
+/* LATO MESSAGGI */
 .messaggi{
   width: calc(100% / 3 * 2);
 }
+
+/* SCAMBIO MESSAGGI */
 .messaggi .exchange{
   background: url(../img/mine.jpg) repeat;
   width: 100%;
