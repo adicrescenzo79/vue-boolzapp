@@ -8,6 +8,7 @@ var app = new Vue({
     msgIndex: -1,
     contatti: 'active',
     messaggi: '',
+    option: 'false',
   },
 
   methods: {
@@ -55,11 +56,13 @@ var app = new Vue({
 
     options: function(i){
       this.msgIndex = i;
+      this.option = !this.option;
     },
 
     remove: function(i){
+      console.log(i);
       this.contacts[this.index].messages.splice(i, 1);
       this.msgIndex = -1;
-    }
+    },
   }
 })

@@ -63,6 +63,7 @@ a{
   background-color: #EAEAEA;
   height: 70px;
   padding: 0 5px;
+  border-right: 1px solid #DCDCDC;
 
   display: flex;
   justify-content: space-between;

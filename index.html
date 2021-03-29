@@ -69,7 +69,7 @@
 
             </div>
 
-            <div class="messaggi" :class='messaggi'>
+            <div @click="close" class="messaggi" :class='messaggi'>
 
               <div v-if="i == index" v-for='(contact, i) in contacts' class="intestazione">
                 <i @click="back" class="fas fa-angle-double-left"></i>
@@ -92,9 +92,9 @@
                   <span class="text">{{message.text}}</span>
                   <span class="date">{{getTime(message.date)}}</span>
                   <i @click="options(i)" class="fas fa-angle-down"></i>
-                  <div v-if="i == msgIndex" class="options">
+                  <div v-show='option' v-if="i == msgIndex" class="options">
                     <span>Message info</span>
-                    <span @click="remove(i, index)" class="del">Delete message</span>
+                    <span @click="remove(i)" class="del">Delete message</span>
                   </div>
                 </div>
               </div>
@@ -109,38 +109,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
