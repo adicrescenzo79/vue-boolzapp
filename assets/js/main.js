@@ -8,16 +8,25 @@ var app = new Vue({
     msgIndex: -1,
     contatti: 'active',
     messaggi: '',
-    option: 'false',
   },
+  created: function(){
+    this.contacts.forEach((contact, i) => {
+      contact.messages.forEach((message, k) => {
+        let temp = message.date.split(' ')[0];
+        let temp1 = temp.split('/');
+        let newDate = temp1[2] + '-' + temp1[1] + '-' + temp1[0] + ' ' + message.date.split(' ')[1];
+        message.date = newDate;
+      });
 
+    });
+
+  },
   methods: {
     getTime: function(date){
-      let hours = date.split(' ')[1];
-      let hoursSplit = hours.split('');
-      let noSeconds = hoursSplit.splice(0, 5);
-      dateNew = noSeconds.join('');
-      return `${dateNew}`;
+      let dateTime = new Date(date);
+      let hours = dateTime.getHours();
+      let minutes = dateTime.getMinutes();
+      return `${hours}:${minutes}`;
     },
 
     back: function(){
@@ -36,7 +45,7 @@ var app = new Vue({
     submit: function(){
       if (this.input != ''){
         let newMsg = {
-          date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+          date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
           text: this.input,
           status: 'sent',
         }
@@ -45,7 +54,7 @@ var app = new Vue({
 
         setTimeout(() => {
           newMsg = {
-            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+            date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
             text: 'ok',
             status: 'received',
           };
@@ -54,14 +63,18 @@ var app = new Vue({
       }
     },
 
-    options: function(i){
-      this.msgIndex = i;
-      this.option = !this.option;
+    options: function(message, i){
+      if (this.msgIndex != i) {
+
+        this.msgIndex = i;
+      } else {
+        this.msgIndex = -1;
+      }
     },
 
     remove: function(i){
-      console.log(i);
       this.contacts[this.index].messages.splice(i, 1);
+
       this.msgIndex = -1;
     },
   }
