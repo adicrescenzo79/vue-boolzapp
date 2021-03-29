@@ -5,7 +5,9 @@ var app = new Vue({
     index: 0,
     input: '',
     searchInput: '',
-    nameIndex: '',
+    msgIndex: -1,
+    contatti: 'active',
+    messaggi: '',
   },
 
   methods: {
@@ -14,13 +16,20 @@ var app = new Vue({
       let hoursSplit = hours.split('');
       let noSeconds = hoursSplit.splice(0, 5);
       dateNew = noSeconds.join('');
-      console.log(dateNew);
       return `${dateNew}`;
+    },
+
+    back: function(){
+      this.contatti = 'active';
+      this.messaggi = '';
     },
 
     select: function (contact) {
       let selected = this.contacts.indexOf(contact);
       this.index = selected;
+      this.msgIndex = -1;
+      this.contatti = '';
+      this.messaggi = 'active';
     },
 
     submit: function(){
@@ -44,5 +53,13 @@ var app = new Vue({
       }
     },
 
+    options: function(i){
+      this.msgIndex = i;
+    },
+
+    remove: function(i){
+      this.contacts[this.index].messages.splice(i, 1);
+      this.msgIndex = -1;
+    }
   }
 })

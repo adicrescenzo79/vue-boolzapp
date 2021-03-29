@@ -17,6 +17,11 @@ i{
   cursor: pointer;
 }
 
+a{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* SFONDO */
 .sfondo{
   position: relative;
@@ -180,7 +185,7 @@ i{
 }
 
 .contatti .lista-contatti .contatto:hover{
-  background-color: #f7f7f7;
+  opacity: 0.8;
 
 }
 
@@ -225,6 +230,10 @@ i{
   align-items: center;
 }
 
+.messaggi .intestazione .fa-angle-double-left{
+  display: none;
+}
+
 .messaggi .intestazione .titolo{
   display: flex;
   align-items: center;
@@ -237,7 +246,7 @@ i{
 
 .messaggi .intestazione .titolo .testo{
   margin-left: 10px;
-  
+
   display: flex;
   flex-direction: column;
 }
@@ -272,6 +281,7 @@ i{
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -292,6 +302,47 @@ i{
   color: #8F8DB2;
   align-self: flex-end;
   font-size: 11px;
+}
+
+.messaggi .exchange .messaggio i{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  opacity: 0.5;
+  display: none;
+}
+
+.messaggi .exchange .messaggio:hover i{
+  display: block;
+}
+
+.messaggi .exchange .messaggio .options{
+  position: absolute;
+  background-color: #fff;
+  text-align: center;
+  right: -50%;
+  top: 50%;
+  transform: translate(-50%);
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;3
+  align-items: center;
+}
+
+.messaggi .exchange .messaggio .options span{
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.messaggi .exchange .messaggio .options span:hover{
+  opacity: 0.5;
+}
+
+.messaggi .exchange .messaggio .options span.del{
+  border-top: 1px solid #eaeaea;
 }
 
 /* NUOVO MESSAGGIO */
@@ -318,6 +369,33 @@ i{
   border-radius: 8px;
 }
 
-.messaggi .new-msg
+@media all and (max-width: 767px) {
 
-.messaggi .new-msg
+  .contatti{
+    width: 100%;
+    display: none;
+  }
+
+  .contatti.active{
+    display: block;
+  }
+
+  .messaggi{
+    display: none;
+    width: 100%;
+  }
+
+  .messaggi.active{
+    display: block;
+  }
+
+  .messaggi .intestazione{
+    position: relative;
+  }
+
+  .messaggi .intestazione .fa-angle-double-left{
+    display: inline-block;
+    position: absolute;
+  }
+
+}
