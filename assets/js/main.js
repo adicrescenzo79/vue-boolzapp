@@ -8,6 +8,7 @@ var app = new Vue({
     msgIndex: -1,
     contatti: 'active',
     messaggi: '',
+    sound: new Audio('./assets/sounds/ring.mp3'),
   },
   created: function(){
     this.contacts.forEach((contact, i) => {
@@ -17,7 +18,18 @@ var app = new Vue({
         let newDate = temp1[2] + '-' + temp1[1] + '-' + temp1[0] + ' ' + message.date.split(' ')[1];
         message.date = newDate;
       });
+    });
 
+    this.contacts = this.contacts.map((contact, i) => {
+      let unReaded = true;
+      let newAdd = {
+        ...contact,
+        unReaded,
+      };
+      if (i == 0){
+        newAdd.unReaded = false;
+      }
+      return newAdd;
     });
 
   },
@@ -40,6 +52,8 @@ var app = new Vue({
       this.msgIndex = -1;
       this.contatti = '';
       this.messaggi = 'active';
+      this.contacts[this.index].unReaded = false;
+      this.input = '';
     },
 
     submit: function(){
@@ -48,17 +62,20 @@ var app = new Vue({
           date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
           text: this.input,
           status: 'sent',
-        }
-        this.contacts[this.index].messages.push(newMsg);
+        };
+        let indexNow = this.index;
+        this.contacts[indexNow].messages.push(newMsg);
         this.input = '';
 
         setTimeout(() => {
           newMsg = {
             date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
-            text: 'ok',
+            text: 'smettila di scrivermi o ti denuncio x stalking! MANIACO!',
             status: 'received',
           };
-          this.contacts[this.index].messages.push(newMsg);
+          this.contacts[indexNow].messages.push(newMsg);
+          this.contacts[indexNow].unReaded = true;
+          this.sound.play();
         }, 2000);
       }
     },

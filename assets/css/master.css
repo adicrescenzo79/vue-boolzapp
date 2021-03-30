@@ -17,6 +17,10 @@ i{
   cursor: pointer;
 }
 
+i:hover{
+  color: #4ebd00;
+}
+
 a{
   text-decoration: underline;
   cursor: pointer;
@@ -165,6 +169,10 @@ a{
 }
 
 /* LISTA CONTATTI */
+.contatti .lista .lista-contatti{
+  overflow: auto;
+}
+
 .contatti .lista-contatti img{
   width: 65px;
   border-radius: 50%;
@@ -179,6 +187,9 @@ a{
   padding: 10px;
   border-bottom: 1px solid #EAEAEA;
   cursor: pointer;
+  position: relative;
+  overflow: auto;
+
 
   display: flex;
   justify-content: flex-start;
@@ -213,6 +224,21 @@ a{
 .contatti .lista-contatti .time{
   color: #8F8DB2;
   font-size: 11px;
+}
+
+.contatti .lista-contatti .last{
+  white-space: nowrap;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contatti .lista-contatti .contatto i{
+  color: #4ebd00;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* LATO MESSAGGI */
@@ -360,6 +386,10 @@ a{
 .messaggi .new-msg i{
   color: #6D747A;
   font-size: 25px;
+}
+
+.messaggi .new-msg i:hover{
+  color: #4ebd00;
 }
 
 .messaggi .new-msg input{
