@@ -10,7 +10,9 @@ var app = new Vue({
     messaggi: '',
     sound: new Audio('./assets/sounds/ring.mp3'),
   },
+
   created: function(){
+
     this.contacts.forEach((contact, i) => {
       contact.messages.forEach((message, k) => {
         let temp = message.date.split(' ')[0];
@@ -21,24 +23,89 @@ var app = new Vue({
     });
 
     this.contacts = this.contacts.map((contact, i) => {
-      let unReaded = true;
-      let newAdd = {
+      let unReaded = false;
+      let newContact = {
         ...contact,
         unReaded,
       };
-      if (i == 0){
-        newAdd.unReaded = false;
-      }
-      return newAdd;
+      return newContact;
     });
 
+    setTimeout(() => {
+      newMsg = {
+        date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
+        text: 'Ma dove stavi ieri sera?',
+        status: 'received',
+      };
+      this.contacts[3].messages.push(newMsg);
+      this.contacts[3].unReaded = true;
+      this.sound.play();
+      this.newUp();
+    }, 15000);
+
+    setTimeout(() => {
+      newMsg = {
+        date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
+        text: 'Puoi prestarmi 20€?',
+        status: 'received',
+      };
+      this.contacts[6].messages.push(newMsg);
+      this.contacts[6].unReaded = true;
+      this.sound.play();
+      this.newUp();
+    }, 20000);
+
+    // let tempNew =
+
   },
+
   methods: {
     getTime: function(date){
       let dateTime = new Date(date);
       let hours = dateTime.getHours();
       let minutes = dateTime.getMinutes();
       return `${hours}:${minutes}`;
+    },
+
+    newUp: function(){
+
+      // for (var variable in object) {
+      //   if (object.hasOwnProperty(variable)) {
+      //
+      //   }
+      // }
+      // let tempNew = [];
+      // let tempOthers = [];
+      // this.contacts.forEach((contact, i) => {
+      //   if (this.contacts[i].unReaded) {
+      //     tempNew = this.contacts[i];
+      //     this.contacts.splice(i, 1);
+      //
+      //   };
+      //
+      //   tempOthers = {
+      //     ...tempNew,
+      //     ...this.contacts,
+      //   };
+      //
+      //   this.contacts = tempOthers;
+      // });
+
+      // this.contacts = this.contacts.map((contact, i) => {
+      //   let tempNew = [];
+      //   if (this.contacts[i].unReaded) {
+      //     tempNew = contacts[i];
+      //     this.contacts.splice(i, 1);
+      //     console.log(tempNew);
+      //     console.log(this.contacts);
+      //
+      //   };
+      //   return {
+      //     ...tempNew,
+      //     ...this.contacts,
+      //   };
+      //
+      // });
     },
 
     back: function(){
@@ -59,7 +126,7 @@ var app = new Vue({
     submit: function(){
       if (this.input != ''){
         let newMsg = {
-          date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
+          date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
           text: this.input,
           status: 'sent',
         };
@@ -69,13 +136,14 @@ var app = new Vue({
 
         setTimeout(() => {
           newMsg = {
-            date: dayjs().format('MM/DD/YYYY HH:mm:ss'),
+            date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
             text: 'smettila di scrivermi o ti denuncio x stalking! MANIACO!',
             status: 'received',
           };
           this.contacts[indexNow].messages.push(newMsg);
           this.contacts[indexNow].unReaded = true;
           this.sound.play();
+          this.newUp();
         }, 2000);
       }
     },
