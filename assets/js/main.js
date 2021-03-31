@@ -8,9 +8,9 @@ var app = new Vue({
     msgIndex: -1,
     contatti: 'active',
     messaggi: '',
-    sound: new Audio('./assets/sounds/ring.mp3'),
+    sound: '',
     menuIndex: -1,
-    // elementFreccia1: i.freccia-dx.fas.fa-angle-double-right,
+    silenzioso: true,
   },
 
   created: function(){
@@ -44,7 +44,9 @@ var app = new Vue({
       let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
       this.contacts[randomContact].messages.push(newMsg);
       this.contacts[randomContact].unRead = true;
-      this.sound.play();
+      if (this.sound != '') {
+        this.sound.play();
+      };
       this.newUp();
     }, 15000);
 
@@ -57,7 +59,9 @@ var app = new Vue({
       let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
       this.contacts[randomContact].messages.push(newMsg);
       this.contacts[randomContact].unRead = true;
-      this.sound.play();
+      if (this.sound != '') {
+        this.sound.play();
+      };
       this.newUp();
     }, 20000);
 
@@ -66,6 +70,16 @@ var app = new Vue({
 
 
   methods: {
+
+    notifiche: function(){
+      if (this.silenzioso) {
+        this.silenzioso = false;
+        this.sound = new Audio('./assets/sounds/ring.mp3');
+      } else {
+        this.silenzioso = true;
+        this.sound = '';
+      }
+    },
 
     nonLetto: function(i){
       this.contacts[i].unRead = true;
@@ -156,7 +170,9 @@ var app = new Vue({
           };
           this.contacts[indexNow].messages.push(newMsg);
           this.contacts[indexNow].unRead = true;
-          this.sound.play();
+          if (this.sound != '') {
+            this.sound.play();
+          };
           this.newUp();
         }, 2000);
       }

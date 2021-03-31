@@ -109,6 +109,11 @@ a{
   align-items: center;
 }
 
+.contatti .notifiche:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .contatti .notifiche *{
   margin-left: 10px;
 }
@@ -117,9 +122,17 @@ a{
   background-color: #fff;
   font-size: 25px;
   color: #8EDAFC;
-  padding: 17px 15px;
   border-radius: 50%;
 }
+
+.contatti .notifiche i.fa-bell-slash{
+  padding: 17px 15px;
+}
+
+.contatti .notifiche i.fa-bell{
+  padding: 17px 20px;
+}
+
 
 .contatti .notifiche .text{
   display: flex;
@@ -128,6 +141,14 @@ a{
 
 .contatti .notifiche .text a{
   color:   #71867F;
+}
+
+.contatti .notifiche .text a.attivare:after{
+  content: 'Attiva le notifiche desktop';
+}
+
+.contatti .notifiche .text a.disattivare:after{
+  content: 'Disttiva le notifiche desktop';
 
 }
 

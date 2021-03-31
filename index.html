@@ -33,11 +33,12 @@
                 </div>
               </div>
 
-              <div class="notifiche">
-                <i class="fas fa-bell-slash"></i>
+              <div @click="notifiche" class="notifiche">
+                <i v-if="silenzioso" class="fas fa-bell"></i>
+                <i v-else="silenzioso" class="fas fa-bell-slash"></i>
                 <div class="text">
                   <span>Ricevi notifiche di nuovi messaggi</span>
-                  <a >Attiva le notifiche desktop</a>
+                  <a :class="(silenzioso) ? 'attivare' : 'disattivare'"></a>
                 </div>
               </div>
 
