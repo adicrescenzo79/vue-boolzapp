@@ -178,6 +178,13 @@ a{
   border-radius: 50%;
 }
 
+.contatti .lista-contatti li{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #EAEAEA;
+
+}
+
 .contatti .lista-contatti .contatto.active{
   background-color: #EAEAEA;
 }
@@ -185,7 +192,6 @@ a{
 .contatti .lista-contatti .contatto{
   width: 100%;
   padding: 10px;
-  border-bottom: 1px solid #EAEAEA;
   cursor: pointer;
   position: relative;
   overflow: auto;
@@ -233,13 +239,56 @@ a{
   text-overflow: ellipsis;
 }
 
-.contatti .lista-contatti .contatto i{
+.contatti .lista-contatti .contatto .dot{
   color: #4ebd00;
   position: absolute;
   right: 5%;
   top: 50%;
   transform: translateY(-50%);
 }
+
+.contatti .lista-contatti .contatto .freccia-dx,
+.contatti .lista-contatti .contatto .freccia-sx{
+  color: #B1B1B1;
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  display: none;
+}
+
+.contatti .lista-contatti .contatto:hover .freccia-dx,
+.contatti .lista-contatti .contatto:hover .freccia-sx{
+  display: block;
+}
+
+.contatti .lista-contatti .contatto .freccia-dx:hover,
+.contatti .lista-contatti .contatto .freccia-sx:hover{
+  color: #4ebd00;
+}
+
+.contatti .lista-contatti li .cancella{
+  background-color: #ff0000;
+  height: 86px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.contatti .lista-contatti li .cancella.active{
+  display: flex;
+}
+
+.contatti .lista-contatti li .cancella:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+
 
 /* LATO MESSAGGI */
 .messaggi{

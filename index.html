@@ -63,8 +63,12 @@
                         </div>
                         <span class="last">{{contact.messages[contact.messages.length - 1].text}}</span>
                       </div>
-                      <i v-if="contact.unRead && index != i" class="fas fa-circle"></i>
+                      <i v-if="contact.unRead && index != i" class="dot fas fa-circle"></i>
+                      <i @click="openMenu(i)" v-if="contact.open" class="freccia-sx fas fa-angle-double-left"></i>
+                      <i @click="closeMenu(i)" v-else="contact.open" class="freccia-dx fas fa-angle-double-right"></i>
                     </div>
+                    <div @click="cancella(i)" :class="(menuIndex == i) ? 'active' : '' " class="cancella">Cancella conversazione</div>
+
                   </li>
                 </ul>
               </div>

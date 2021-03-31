@@ -9,6 +9,7 @@ var app = new Vue({
     contatti: 'active',
     messaggi: '',
     sound: new Audio('./assets/sounds/ring.mp3'),
+    menuIndex: -1,
   },
 
   created: function(){
@@ -24,9 +25,11 @@ var app = new Vue({
 
     this.contacts = this.contacts.map((contact, i) => {
       let unRead = false;
+      let open = true;
       let newContact = {
         ...contact,
         unRead,
+        open,
       };
       return newContact;
     });
@@ -37,8 +40,9 @@ var app = new Vue({
         text: 'Ma dove stavi ieri sera?',
         status: 'received',
       };
-      this.contacts[3].messages.push(newMsg);
-      this.contacts[3].unRead = true;
+      let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
+      this.contacts[randomContact].messages.push(newMsg);
+      this.contacts[randomContact].unRead = true;
       this.sound.play();
       this.newUp();
     }, 15000);
@@ -49,8 +53,9 @@ var app = new Vue({
         text: 'Puoi prestarmi 20€?',
         status: 'received',
       };
-      this.contacts[6].messages.push(newMsg);
-      this.contacts[6].unRead = true;
+      let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
+      this.contacts[randomContact].messages.push(newMsg);
+      this.contacts[randomContact].unRead = true;
       this.sound.play();
       this.newUp();
     }, 20000);
@@ -59,6 +64,27 @@ var app = new Vue({
   },
 
   methods: {
+
+    randomNumberInRange: function(min, max){
+      return Math.floor(Math.random() * max) + min;
+    },
+
+    openMenu: function(i){
+      this.menuIndex = i;
+      this.contacts[i].open = false;
+    },
+
+    closeMenu: function(i){
+      this.menuIndex = -1;
+      this.contacts[i].open = true;
+    },
+
+    cancella: function(i){
+      this.contacts.splice(i, 1);
+      this.menuIndex = -1;
+      this.contacts[i].open = true;
+    },
+
     getTime: function(date){
       let dateTime = new Date(date);
       let hours = dateTime.getHours();
