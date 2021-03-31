@@ -67,14 +67,17 @@ var app = new Vue({
     },
 
     newUp: function(){
+      // SALVO IN UNA VARIABILE IL CONTATTO ATTUALMENTE SELEZIONATO
+      let actualContact = this.contacts[this.index];
+
       let msgUnread = this.contacts.filter((contact) => contact.unRead);
       let msgRead = this.contacts.filter((contact) => !contact.unRead);
 
       this.contacts = [...msgUnread, ...msgRead];
-      this.contacts.forEach((contact, i) => {
-        console.log(contact.unRead);
-      });
 
+      // FACCIO IN MODO CHE RIMANGA SELEZIONATO LO STESSO CONTATTO
+      let actualIndex = this.contacts.indexOf(actualContact);
+      this.index = actualIndex;
     },
 
 
