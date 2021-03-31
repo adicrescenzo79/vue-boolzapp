@@ -268,22 +268,43 @@ a{
   color: #4ebd00;
 }
 
-.contatti .lista-contatti li .cancella{
-  background-color: #ff0000;
-  height: 86px;
+.contatti .lista-contatti li .menu{
   display: none;
   justify-content: center;
   align-items: center;
+}
+
+.contatti .lista-contatti li .menu.active{
+  display: flex;
+
+}
+
+.contatti .lista-contatti li .menu .cancella{
+  background-color: #ff0000;
+  height: 86px;
   text-align: center;
   color: #fff;
   font-weight: bold;
-}
 
-.contatti .lista-contatti li .cancella.active{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contatti .lista-contatti li .cancella:hover{
+.contatti .lista-contatti li .menu .nonletto{
+  background-color: #e5be01;
+  height: 86px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contatti .lista-contatti li .menu:hover{
   cursor: pointer;
   opacity: 0.8;
 }

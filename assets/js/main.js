@@ -64,7 +64,16 @@ var app = new Vue({
 
   },
 
+
   methods: {
+
+    nonLetto: function(i){
+      this.contacts[i].unRead = true;
+      this.menuIndex = -1;
+      this.contacts[i].open = true;
+      this.newUp();
+    },
+
 
     randomNumberInRange: function(min, max){
       return Math.floor(Math.random() * max) + min;
