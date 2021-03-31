@@ -10,6 +10,7 @@ var app = new Vue({
     messaggi: '',
     sound: new Audio('./assets/sounds/ring.mp3'),
     menuIndex: -1,
+    // elementFreccia1: i.freccia-dx.fas.fa-angle-double-right,
   },
 
   created: function(){
@@ -69,20 +70,34 @@ var app = new Vue({
       return Math.floor(Math.random() * max) + min;
     },
 
+    select: function (contact) {
+      let selected = this.contacts.indexOf(contact);
+      this.index = selected;
+      this.msgIndex = -1;
+      this.contatti = '';
+      this.messaggi = 'active';
+      this.contacts[this.index].unRead = false;
+      this.input = '';
+    },
+
+
     openMenu: function(i){
       this.menuIndex = i;
       this.contacts[i].open = false;
+
     },
 
     closeMenu: function(i){
       this.menuIndex = -1;
       this.contacts[i].open = true;
+
     },
 
     cancella: function(i){
       this.contacts.splice(i, 1);
       this.menuIndex = -1;
       this.contacts[i].open = true;
+
     },
 
     getTime: function(date){
@@ -112,15 +127,6 @@ var app = new Vue({
       this.messaggi = '';
     },
 
-    select: function (contact) {
-      let selected = this.contacts.indexOf(contact);
-      this.index = selected;
-      this.msgIndex = -1;
-      this.contatti = '';
-      this.messaggi = 'active';
-      this.contacts[this.index].unRead = false;
-      this.input = '';
-    },
 
     submit: function(){
       if (this.input != ''){
