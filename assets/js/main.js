@@ -23,10 +23,10 @@ var app = new Vue({
     });
 
     this.contacts = this.contacts.map((contact, i) => {
-      let unReaded = false;
+      let unRead = false;
       let newContact = {
         ...contact,
-        unReaded,
+        unRead,
       };
       return newContact;
     });
@@ -38,7 +38,7 @@ var app = new Vue({
         status: 'received',
       };
       this.contacts[3].messages.push(newMsg);
-      this.contacts[3].unReaded = true;
+      this.contacts[3].unRead = true;
       this.sound.play();
       this.newUp();
     }, 15000);
@@ -50,12 +50,11 @@ var app = new Vue({
         status: 'received',
       };
       this.contacts[6].messages.push(newMsg);
-      this.contacts[6].unReaded = true;
+      this.contacts[6].unRead = true;
       this.sound.play();
       this.newUp();
     }, 20000);
 
-    // let tempNew =
 
   },
 
@@ -68,45 +67,16 @@ var app = new Vue({
     },
 
     newUp: function(){
+      let msgUnread = this.contacts.filter((contact) => contact.unRead);
+      let msgRead = this.contacts.filter((contact) => !contact.unRead);
 
-      // for (var variable in object) {
-      //   if (object.hasOwnProperty(variable)) {
-      //
-      //   }
-      // }
-      // let tempNew = [];
-      // let tempOthers = [];
-      // this.contacts.forEach((contact, i) => {
-      //   if (this.contacts[i].unReaded) {
-      //     tempNew = this.contacts[i];
-      //     this.contacts.splice(i, 1);
-      //
-      //   };
-      //
-      //   tempOthers = {
-      //     ...tempNew,
-      //     ...this.contacts,
-      //   };
-      //
-      //   this.contacts = tempOthers;
-      // });
+      this.contacts = [...msgUnread, ...msgRead];
+      this.contacts.forEach((contact, i) => {
+        console.log(contact.unRead);
+      });
 
-      // this.contacts = this.contacts.map((contact, i) => {
-      //   let tempNew = [];
-      //   if (this.contacts[i].unReaded) {
-      //     tempNew = contacts[i];
-      //     this.contacts.splice(i, 1);
-      //     console.log(tempNew);
-      //     console.log(this.contacts);
-      //
-      //   };
-      //   return {
-      //     ...tempNew,
-      //     ...this.contacts,
-      //   };
-      //
-      // });
     },
+
 
     back: function(){
       this.contatti = 'active';
@@ -119,7 +89,7 @@ var app = new Vue({
       this.msgIndex = -1;
       this.contatti = '';
       this.messaggi = 'active';
-      this.contacts[this.index].unReaded = false;
+      this.contacts[this.index].unRead = false;
       this.input = '';
     },
 
@@ -141,7 +111,7 @@ var app = new Vue({
             status: 'received',
           };
           this.contacts[indexNow].messages.push(newMsg);
-          this.contacts[indexNow].unReaded = true;
+          this.contacts[indexNow].unRead = true;
           this.sound.play();
           this.newUp();
         }, 2000);
