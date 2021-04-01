@@ -35,41 +35,32 @@ var app = new Vue({
       return newContact;
     });
 
-    setTimeout(() => {
-      newMsg = {
-        date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
-        text: 'Ma dove stavi ieri sera?',
-        status: 'received',
-      };
-      let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
-      this.contacts[randomContact].messages.push(newMsg);
-      this.contacts[randomContact].unRead = true;
-      if (this.sound != '') {
-        this.sound.play();
-      };
-      this.newUp();
-    }, 15000);
+    this.autoMsg(10000, 'Puoi prestarmi 20€?');
 
-    setTimeout(() => {
-      newMsg = {
-        date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
-        text: 'Puoi prestarmi 20€?',
-        status: 'received',
-      };
-      let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
-      this.contacts[randomContact].messages.push(newMsg);
-      this.contacts[randomContact].unRead = true;
-      if (this.sound != '') {
-        this.sound.play();
-      };
-      this.newUp();
-    }, 20000);
-
+    this.autoMsg(15000, 'Ma dove stavi ieri sera?');
 
   },
 
 
   methods: {
+
+    autoMsg: function(seconds, msg){
+      setTimeout(() => {
+        newMsg = {
+          date: dayjs().format('dddd MM/DD/YYYY HH:mm:ss'),
+          text: msg,
+          status: 'received',
+        };
+        let randomContact = this.randomNumberInRange(0, this.contacts.length - 1);
+        this.contacts[randomContact].messages.push(newMsg);
+        this.contacts[randomContact].unRead = true;
+        if (this.sound != '') {
+          this.sound.play();
+        };
+        this.newUp();
+      }, seconds);
+
+    },
 
     notifiche: function(){
       if (this.silenzioso) {
