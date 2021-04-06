@@ -10,7 +10,7 @@
     <title>BoolzApp</title>
   </head>
   <body class="">
-    <div id="root">
+    <div id="root" @click="msgIndex = null">
       <link rel="stylesheet" href="./assets/css/12bool.css">
       <link rel="stylesheet" href="./assets/css/master.css">
 
@@ -101,7 +101,7 @@
                 <div class="messaggio" :class="message.status" v-for="(message, i) in contacts[index].messages">
                   <span class="text">{{message.text}}</span>
                   <span class="date">{{getTime(message.date)}}</span>
-                  <i @click="options(message, i)" class="fas fa-angle-down"></i>
+                  <i @click.stop="msgIndex = i" class="fas fa-angle-down"></i>
                   <div v-if="i == msgIndex" class="options">
                     <span>Message info</span>
                     <span @click="remove(i)" class="del">Delete message</span>

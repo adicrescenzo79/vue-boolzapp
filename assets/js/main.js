@@ -5,7 +5,7 @@ var app = new Vue({
     index: 0,
     input: '',
     searchInput: '',
-    msgIndex: -1,
+    msgIndex: null,
     contatti: 'active',
     messaggi: '',
     sound: '',
@@ -166,15 +166,6 @@ var app = new Vue({
           };
           this.newUp();
         }, 2000);
-      }
-    },
-
-    options: function(message, i){
-      if (this.msgIndex != i) {
-
-        this.msgIndex = i;
-      } else {
-        this.msgIndex = -1;
       }
     },
 
