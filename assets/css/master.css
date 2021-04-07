@@ -190,6 +190,11 @@ a{
 }
 
 /* LISTA CONTATTI */
+.contatti .lista{
+  height: 78%;
+  overflow: auto;
+}
+
 .contatti .lista .lista-contatti{
   overflow: auto;
 }
@@ -396,11 +401,11 @@ a{
 }
 
 .messaggi .exchange .messaggio{
-  width: calc(100% / 3);
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
   position: relative;
+  max-width: 250px;
 
   display: flex;
   flex-direction: column;
@@ -494,6 +499,18 @@ a{
 
 @media all and (max-width: 767px) {
 
+  .app .container-fluid{
+    height: 100vh;
+    width: 100vw;
+  }
+
+
+  .contatti .lista{
+    height: 64%;
+    overflow: auto;
+  }
+
+
   .contatti{
     width: 100%;
     display: none;
@@ -520,5 +537,16 @@ a{
     display: inline-block;
     position: absolute;
   }
+
+  .messaggi .exchange{
+    padding: 20px;
+  }
+
+  .messaggi .exchange .messaggio{
+    max-width: 200px;
+    justify-content: space-between;
+  }
+
+
 
 }

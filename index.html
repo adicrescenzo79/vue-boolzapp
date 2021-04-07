@@ -71,7 +71,7 @@
                     </div>
                     <div :class="(menuIndex == i) ? 'active' : '' " class="menu">
                       <div @click.prevent.stop="cancella(i)"  class="cancella">Cancella conversazione</div>
-                      <div @click.prevent.stop="nonLetto(i)" :class="(menuIndex == i) ? 'active' : '' " class="nonletto">Segna come non letto</div>
+                      <div @click.prevent.stop="nonLetto(i)" class="nonletto">Segna come non letto</div>
                     </div>
                   </li>
                 </ul>
