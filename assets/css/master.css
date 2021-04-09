@@ -535,8 +535,24 @@ a{
 
   .messaggi .intestazione .fa-angle-double-left{
     display: inline-block;
-    position: absolute;
+    font-size: 20px;
+    color: #B1B1B1;
+    margin-right: 10px;
   }
+
+  .messaggi .intestazione .fa-angle-double-left:hover{
+    color: #4ebd00;
+  }
+
+
+  .messaggi .intestazione .icons i{
+    display: none;
+  }
+
+  .messaggi .intestazione .icons i:last-of-type{
+    display: block;
+  }
+
 
   .messaggi .exchange{
     padding: 20px;
@@ -547,6 +563,13 @@ a{
     justify-content: space-between;
   }
 
+  .messaggi .new-msg{
+    justify-content: space-between;
+  }
+
+  .messaggi .new-msg input{
+    margin: 0 15px;
+  }
 
 
 }
